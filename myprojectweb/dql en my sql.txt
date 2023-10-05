@@ -1,0 +1,13 @@
+CREATE DATABASE mydb
+create TABLE mydb.tareas
+(
+	id_tareas INTEGER NOT NULL,
+	descripcion VARCHAR(50) NULL,
+	estado BOOL NULL
+);
+
+ALTER TABLE mydb.tareas ADD CONSTRAINT pktareas
+	PRIMARY KEY (id_tareas);
+
+ALTER TABLE mydb.tareas
+MODIFY id_tareas INT AUTO_INCREMENT;
