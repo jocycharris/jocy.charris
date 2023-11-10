@@ -1,0 +1,14 @@
+CREATE DATABASE biblioteca
+
+CREATE TABLE biblioteca.LIBROS
+(
+	id_libro INTEGER NOT NULL,
+	nombre VARCHAR(50) NULL,
+	autor VARCHAR(50) NULL,
+	editorial VARCHAR(50) NULL,
+    año INTEGER NULL
+);
+ALTER TABLE biblioteca.libros ADD CONSTRAINT pklibros
+	PRIMARY KEY (id_libro);
+ALTER TABLE biblioteca.libros
+MODIFY id_libro INT AUTO_INCREMENT;

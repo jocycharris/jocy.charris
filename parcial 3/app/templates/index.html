@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <h1>Lista de Libros</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Año</th>
+            <th></th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+            <td>{{ book[4] }}</td>
+            <td>
+                <a href="{{ url_for('delete_book', book_id=book[0]) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form method="POST" action="/add">
+        <label for="book_name">Nombre:</label>
+        <input type="text" id="book_name" name="book_name" placeholder="Nombre del libro" required>
+
+        <label for="book_author">Autor:</label>
+        <input type="text" id="book_author" name="book_author" placeholder="Nombre del autor" required>
+
+        <label for="book_editorial">Editorial:</label>
+        <input type="text" id="book_editorial" name="book_editorial" placeholder="Nombre de la editorial" required>
+
+        <label for="book_year">Año:</label>
+        <input type="text" id="book_year" name="book_year" placeholder="Año de publicación" required>
+
+        <button type="submit">Agregar</button>
+    </form>
+</body>
+
+</html>
+
+
+
